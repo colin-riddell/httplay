@@ -6,6 +6,7 @@ use crate::requests;
 fn handle_client(mut stream: TcpStream) ->std::io::Result<()> {
     let request = requests::HTTPRequest::new(&stream);
     
+    println!(" {:?}", request);
     println!("VERB IS: {}", request.get_verb());
 
     let response_line = String::from("HTTP/1.1 200 OK\r\n\r\nRequest received!");
